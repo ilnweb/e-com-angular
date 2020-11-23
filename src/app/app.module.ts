@@ -6,10 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
-import { MatSliderModule } from '@angular/material/slider';
 import { CardComponent } from './card/card.component';
-
-
 
 @NgModule({
   declarations: [
@@ -21,8 +18,7 @@ import { CardComponent } from './card/card.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSliderModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
