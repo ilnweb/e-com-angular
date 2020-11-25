@@ -18,6 +18,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ShopComponent } from './pages/shop/shop.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { ShopComponent } from './pages/shop/shop.component';
     HeaderComponent,
     FooterComponent,
     ShopComponent,
+    PageNotFoundComponent,
+    ShoppingCartComponent,
    
   ],
   imports: [
