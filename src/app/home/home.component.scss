@@ -1,33 +1,41 @@
-.home-page{
+.home-page {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 
+  &_hero {
+    background-image: url("https://res.cloudinary.com/ilnphotography/image/upload/v1606297752/e-com/hero_hrysxk.jpg");
+    height: 30rem;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
 
-  &_cathegories{
+  &_cathegories {
     display: flex;
   }
 
-  &_card{
+  &_card {
     width: 20rem;
     height: 20rem;
     padding: 4rem;
     margin: 2rem;
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 20px grey;
-    img{
+
+    img {
       width: 80%;
     }
   }
 
-  &_latest-products{
+  &_latest-products {
     margin-top: 4rem;
     display: flex;
-    width:100%;
+    width: 100%;
     justify-content: space-around;
   }
 
