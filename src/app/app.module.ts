@@ -17,6 +17,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { ShopComponent } from './pages/shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
+    ShopComponent,
    
   ],
   imports: [
