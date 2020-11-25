@@ -7,6 +7,24 @@
   align-items: center;
   color: white;
 
+  .logo{
+    display: flex;
+    align-items:center;
+    h1{
+      margin: 0;
+      margin-left: 1rem;
+    }
+    
+
+    div{
+      width: 3rem;
+    }
+
+    &-icon{
+      font-size: 3rem;
+    }
+  }
+
   ul{
     display: flex;
     justify-content: space-between;
