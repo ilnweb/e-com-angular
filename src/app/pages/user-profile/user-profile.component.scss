@@ -1,0 +1,24 @@
+.user_profile {
+  padding: 0 10%;
+
+  &-info {
+    width: 100%;
+    min-height: 20rem;
+    background-color: grey;
+    justify-content: space-around;
+    align-items:center;
+
+   &-imagebox {
+      overflow: hidden;
+      width: 15rem;
+      height: 15rem;
+      border-radius: 100%;
+      background-position:center;
+      background-size:cover;
+    }
+
+    img {
+      width: 20rem;
+    }
+  }
+}
