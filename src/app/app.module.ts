@@ -20,6 +20,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { ShopComponent } from './pages/shop/shop.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
     MatSliderModule,
     MatButtonModule,
     MatIconModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

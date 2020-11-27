@@ -1,0 +1,15 @@
+.shop {
+  padding: 0 10%;
+
+  &_filter-menu {
+    width: 100%;
+  }
+
+  &_container{
+    flex-wrap: wrap;
+  }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
