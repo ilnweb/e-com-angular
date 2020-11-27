@@ -22,6 +22,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
+import { PurchaseHistoryComponent } from './pages/purchase-history/purchase-history.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {MatInputModule} from '@angular/material/input';
     ShopComponent,
     PageNotFoundComponent,
     ShoppingCartComponent,
+    PurchaseHistoryComponent,
    
   ],
   imports: [

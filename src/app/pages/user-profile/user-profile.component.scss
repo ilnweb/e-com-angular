@@ -1,10 +1,9 @@
 .user_profile {
   padding: 0 10%;
 
-  &-info {
+  &-header {
     width: 100%;
     min-height: 20rem;
-    background-color: grey;
     justify-content: space-around;
     align-items:center;
 
@@ -15,6 +14,14 @@
       border-radius: 100%;
       background-position:center;
       background-size:cover;
+    }
+
+    &-info{
+      align-items:space-around;
+
+      button{
+        margin: .5rem 0;
+      }
     }
 
     img {
