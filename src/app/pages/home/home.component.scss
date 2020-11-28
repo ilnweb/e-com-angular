@@ -5,8 +5,8 @@
   align-items: center;
 
   &_hero {
-    background-image: url("https://res.cloudinary.com/ilnphotography/image/upload/v1606297752/e-com/hero_hrysxk.jpg");
-    height: 30rem;
+    background-image: url("https://res.cloudinary.com/ilnphotography/image/upload/v1606601072/e-com/c4e5ed2b6578419183472664febb672e_EOS_R_banner_1920_x_750_zc7ar5.jpg");
+    height:40rem;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -38,6 +38,7 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 
 

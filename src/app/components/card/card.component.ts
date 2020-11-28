@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
+import { IProduct } from '../../models/product.model';
 
 
 @Component({
@@ -8,7 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-
+  @Input() product:IProduct;
   constructor() { }
 
   ngOnInit(): void {

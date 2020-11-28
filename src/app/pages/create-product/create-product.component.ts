@@ -1,6 +1,8 @@
+import {Router} from "@angular/router"
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ProductsService } from '../../services/products.service';
+
 
 @Component({
   selector: 'app-create-product',
@@ -9,7 +11,7 @@ import { ProductsService } from '../../services/products.service';
 })
 export class CreateProductComponent implements OnInit {
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService, private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +24,9 @@ export class CreateProductComponent implements OnInit {
     this.productsService.createProduct(
       title, imageUrl, description, price
     ).subscribe(resData => {
-      console.log(resData);
+      if (resData) {
+        this.route.navigate(['/'])
+      }
     })
   }
 

@@ -6,22 +6,21 @@
     <div class="home-page_card">
       <img src="https://static.bhphoto.com/images/images1000x1000/1594281159_1573879.jpg" alt="">
       <h1 class="home-page_card-title">Cameras</h1>
-    
+
     </div>
 
     <div class="home-page_card">
       <img src="https://www.travelanddestinations.com/wp-content/uploads/2018/05/Camera-lenses-CC0-Pixabay.jpg" alt="">
-      <h1 class="home-page_card-title"> Lenses</h1>
-    
+      <h1 class="home-page_card-title">Lenses</h1>
+
     </div>
   </div>
-  
+
   <h1 class="mat-display-2">Latest Products</h1>
   <hr>
-  <div class="home-page_latest-products">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+  <div class="home-page_latest-products" *ngIf='products' fxLayout="row">
+    <div *ngFor='let product of products'>
+      <app-card [product]='product'></app-card>
+    </div>
   </div>
 </div>
