@@ -1,1 +1,35 @@
-<p>create-product works!</p>
+<div class="create-product" fxLayout="column" fxLayoutAlign="center center">
+  <h1>Create new product</h1>
+
+  <form (ngSubmit)="onCreateProduct(f)" #f="ngForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Title</mat-label>
+      <input type="text" name="title" placeholder="Title" matInput ngModel required minlength="3">
+      <mat-error>
+        Title should be longer than 3 characters!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Image</mat-label>
+      <input type="text" name="imageUrl" placeholder="Image" matInput ngModel required>
+      <mat-error>
+        Image has to be smaller than 2MB!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <input type="text" name="description" placeholder="Description" matInput ngModel required minlength="6">
+      <mat-error>
+        Description should be longer than 6 charachters
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Price</mat-label>
+      <input type="number" name="price" placeholder="Price" matInput ngModel required>
+      <mat-error>
+        Please should not be empty!
+      </mat-error>
+    </mat-form-field>
+    <button [disabled]="!f.valid" mat-raised-button color="primary" type="submit">Create Product</button>
+  </form>
+</div>

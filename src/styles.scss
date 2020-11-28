@@ -50,3 +50,22 @@ input{
 .secondary{
   background-color:#f00855;
 }
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.mat-form-field-underline {
+  background-color: green;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 1.25em;
+  font-size: 1.5rem;
+}

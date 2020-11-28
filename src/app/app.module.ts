@@ -23,6 +23,7 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
 import { PurchaseHistoryComponent } from './pages/purchase-history/purchase-history.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { PurchaseHistoryComponent } from './pages/purchase-history/purchase-hist
     PageNotFoundComponent,
     ShoppingCartComponent,
     PurchaseHistoryComponent,
+    
    
   ],
   imports: [
@@ -51,7 +53,8 @@ import { PurchaseHistoryComponent } from './pages/purchase-history/purchase-hist
     MatIconModule,
     FlexLayoutModule,
     MatToolbarModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
