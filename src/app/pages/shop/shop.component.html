@@ -15,11 +15,9 @@
       </button>
     </mat-toolbar>
   </div>
-  <div class="shop_container" fxLayout="row">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+  <div class="shop_container" fxLayout="row" fxLayoutAlign="center center">
+    <div *ngFor='let product of products'>
+      <app-card [product]='product'></app-card>
+    </div>
   </div>
 </div>

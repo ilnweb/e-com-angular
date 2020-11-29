@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { IProduct } from '../models/product.model';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class ProductsService {
   productsChanged = new Subject<IProduct[]>();
   private products: IProduct[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authservice: AuthService) { }
 
   getLocalProducts() {
     return this.products;
@@ -29,20 +30,23 @@ export class ProductsService {
     console.log('reached');
     return this.http.get('http://localhost:5000/shop/products').subscribe((res: any) => {
       this.products = [...res.products]
-      this.productsChanged.next(this.products.reverse().splice(0, 4));
+      this.productsChanged.next(this.products.reverse().splice(0, 3));
       console.log(this.products);
     })
   }
 
   createProduct(title: string, category: string, imageUrl: string, description: string, price: number) {
-    console.log('reached');
+    const token = localStorage.getItem('token')
     return this.http.post('http://localhost:5000/shop/create-product', {
       title,
       category,
       imageUrl,
       description,
       price,
-      userId: 'daddadadadads'
+    },{
+      headers: {
+        Authorization: "Bearer " + 'dasdad',
+      },
     })
   }
 }
