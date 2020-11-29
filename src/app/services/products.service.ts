@@ -30,6 +30,15 @@ export class ProductsService {
     })
   }
 
+  getLatestProducts() {
+    console.log('reached');
+    return this.http.get('http://localhost:5000/shop/products').subscribe((res:any) => {
+      this.products = [...res.products]
+      this.productsChanged.next(this.products.reverse().splice(0,4));
+      console.log(this.products);
+    })
+  }
+
   createProduct(title: string, imageUrl: string, descriptiion: string, price: number) {
     console.log('reached');
     return this.http.post('http://localhost:5000/shop/create-product', {
