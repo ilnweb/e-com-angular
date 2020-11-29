@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -9,13 +10,21 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  passwordMatch = false;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
   onRegister(form: NgForm) {
-    console.log(form.value);
+    const { email, name, password, confirmPassword } = form.value;
+
+    if (confirmPassword !== password) {
+      this.passwordMatch = true;
+      return;
+    }
+    this.authService.register(email, password, name)
   }
 
 }

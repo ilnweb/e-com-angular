@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class AuthService {
   productsChanged = new Subject<IUser[]>();
-  private user:IUser = null;
+  private user: IUser = null;
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,7 @@ export class AuthService {
       password
 
     }).subscribe((res: any) => {
-
+      
     })
   }
 }
