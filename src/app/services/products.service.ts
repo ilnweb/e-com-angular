@@ -8,12 +8,7 @@ import { IProduct } from '../models/product.model';
 })
 export class ProductsService {
   productsChanged = new Subject<IProduct[]>();
-  private products:IProduct[] = [{
-    productTitle: 'sdasdd',
-    productImg: 'dsadsadsa',
-    productDescription: "sdsad",
-    productPrice: 23423423
-  }];
+  private products:IProduct[] = [];
 
   constructor(private http: HttpClient) { }
 
