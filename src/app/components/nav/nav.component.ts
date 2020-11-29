@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,14 +10,18 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavComponent implements OnInit {
   user = null;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {
-    this.authService.user.subscribe(user => {
-      if (user) {
-        this.user = user;
-      }
+    this.authService.user.subscribe(user => { 
+      this.user = user;
     })
+  }
+
+  logout() {
+    this.authService.logout()
+    this.route.navigate(['/']);
+    this.user = null;
   }
 
 }
