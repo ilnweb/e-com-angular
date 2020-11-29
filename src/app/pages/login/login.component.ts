@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 
 @Component({
@@ -9,14 +12,23 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  
-  constructor() { }
+
+  user = null;
+
+  constructor(private authService: AuthService, private route:Router) { }
 
   ngOnInit(): void {
   }
 
   onLogin(form: NgForm) {
-    console.log(form.value);
+    const { email, password } = form.value;
+    this.authService.login(email, password)
+    this.authService.user.subscribe(user => {
+      if (user) {
+        this.user = user;
+        this.route.navigate(['/'])
+      }
+    })
   }
 
 }

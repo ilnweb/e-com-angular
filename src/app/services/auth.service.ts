@@ -7,8 +7,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  productsChanged = new Subject<IUser[]>();
-  private user: IUser = null;
+  user = new Subject<IUser>();
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +18,35 @@ export class AuthService {
       password
 
     }).subscribe((res: any) => {
-      console.log(res);
+      const user = res.user;
+      this.user.next(user);
+      console.log(this.user);
     })
+  }
+
+  login(email: string, password: string) {
+    return this.http.post('http://localhost:5000/auth/login', {
+      email,
+      password
+
+    }).subscribe((res: any) => {
+      const user = res.user;
+      this.user.next(user);
+      console.log(this.user);
+      localStorage.setItem('token', user._token)
+    })
+  }
+
+  autoLogin() {
+    const token = localStorage.getItem('token')
+    return this.http.post('http://localhost:5000/auth/login-auto', {},
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }).subscribe((res: any) => {
+        const user = res.user;
+        this.user.next(user);
+      })
   }
 }
