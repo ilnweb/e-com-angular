@@ -14,10 +14,10 @@
       <li *ngIf='user'><a routerLink="/profile">Profile</a></li>
       <li *ngIf='!user'><a routerLink="/login">Login</a></li>
       <li *ngIf='!user'><a routerLink="/register">Register</a></li>
-      
+      <li *ngIf='user'><a routerLink="/">Logout</a></li>
       |
       <li *ngIf='user' class="welcome-message"><span>Hello,&nbsp; </span> {{user.displayName | uppercase}}</li>
-      <li *ngIf='user'><a routerLink="/">Logout</a></li>
+     
       <li>
         <a routerLink="/cart" layout="row" layout-margin>
           <div fxLayout>
