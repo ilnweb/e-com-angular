@@ -8,7 +8,7 @@ import { IProduct } from '../models/product.model';
 })
 export class ProductsService {
   productsChanged = new Subject<IProduct[]>();
-  private products:IProduct[] = [];
+  private products: IProduct[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class ProductsService {
 
   getAllProducts() {
     console.log('reached');
-    return this.http.get('http://localhost:5000/shop/products').subscribe((res:any) => {
+    return this.http.get('http://localhost:5000/shop/products').subscribe((res: any) => {
       this.products = [...res.products]
       this.productsChanged.next(this.products);
       console.log(this.products);
@@ -27,20 +27,21 @@ export class ProductsService {
 
   getLatestProducts() {
     console.log('reached');
-    return this.http.get('http://localhost:5000/shop/products').subscribe((res:any) => {
+    return this.http.get('http://localhost:5000/shop/products').subscribe((res: any) => {
       this.products = [...res.products]
-      this.productsChanged.next(this.products.reverse().splice(0,4));
+      this.productsChanged.next(this.products.reverse().splice(0, 4));
       console.log(this.products);
     })
   }
 
-  createProduct(title: string, imageUrl: string, descriptiion: string, price: number) {
+  createProduct(title: string, category: string, imageUrl: string, description: string, price: number) {
     console.log('reached');
     return this.http.post('http://localhost:5000/shop/create-product', {
-      productTitle: title,
-      productImg: imageUrl,
-      productDescription:descriptiion,
-      productPrice: price,
+      title,
+      category,
+      imageUrl,
+      description,
+      price,
       userId: 'daddadadadads'
     })
   }

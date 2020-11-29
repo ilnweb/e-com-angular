@@ -20,9 +20,9 @@ export class CreateProductComponent implements OnInit {
     if (!form.valid) {
       return;
     }
-    const { title, imageUrl, description, price } = form.value;
+    const { title,category, imageUrl, description, price } = form.value;
     this.productsService.createProduct(
-      title, imageUrl, description, price
+      title,category, imageUrl, description, price
     ).subscribe(resData => {
       if (resData) {
         this.route.navigate(['/'])

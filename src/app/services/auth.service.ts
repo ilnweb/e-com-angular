@@ -19,7 +19,7 @@ export class AuthService {
       password
 
     }).subscribe((res: any) => {
-      
+      console.log(res);
     })
   }
 }
