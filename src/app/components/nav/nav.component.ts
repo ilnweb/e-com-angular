@@ -16,6 +16,7 @@ export class NavComponent implements OnInit {
     this.authService.user.subscribe(user => { 
       this.user = user;
     })
+ 
   }
 
   logout() {

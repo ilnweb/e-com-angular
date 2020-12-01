@@ -37,16 +37,18 @@ export class ProductsService {
 
   createProduct(title: string, category: string, imageUrl: string, description: string, price: number) {
     const token = localStorage.getItem('token')
-    return this.http.post('http://localhost:5000/shop/create-product', {
-      title,
-      category,
-      imageUrl,
-      description,
-      price,
-    },{
-      headers: {
-        Authorization: "Bearer " + 'dasdad',
-      },
-    })
+    if (token) {
+      return this.http.post('http://localhost:5000/shop/create-product', {
+        title,
+        category,
+        imageUrl,
+        description,
+        price,
+      }, {
+        headers: {
+          Authorization: "Bearer " + 'dasdad',
+        },
+      })
+    }
   }
 }

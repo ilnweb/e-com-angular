@@ -47,6 +47,7 @@ export class AuthService {
       }).subscribe((res: any) => {
         const user = res.user;
         this.user.next(user);
+        console.log(user);
       })
   }
 

@@ -7,4 +7,5 @@ export interface IUser {
   products: IProduct[]
   purchased: IProduct[]
   _token: string
+  createdAt
 }
