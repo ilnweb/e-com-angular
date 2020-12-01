@@ -14,7 +14,7 @@
       <li *ngIf='user'><a routerLink="/profile">Profile</a></li>
       <li *ngIf='!user'><a routerLink="/login">Login</a></li>
       <li *ngIf='!user'><a routerLink="/register">Register</a></li>
-      <li *ngIf='user' (click)='logout()'>Logout</li>
+      <li *ngIf='user' style="cursor: pointer;" (click)='logout()'>Logout</li>
       |
       <li *ngIf='user' class="welcome-message" style="font-size: 1rem;"><span>Hello,&nbsp;</span>{{user.displayName | uppercase}}</li>
       <li>

@@ -25,6 +25,9 @@ import {MatInputModule} from '@angular/material/input';
 import { PurchaseHistoryComponent } from './pages/purchase-history/purchase-history.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SingleProductComponent } from './pages/single-product/single-product.component';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     PageNotFoundComponent,
     ShoppingCartComponent,
     PurchaseHistoryComponent,
+    SingleProductComponent,
     
    
   ],
@@ -56,7 +60,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatInputModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
