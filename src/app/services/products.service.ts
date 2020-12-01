@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
 export class ProductsService {
   productsChanged = new Subject<IProduct[]>();
   private products: IProduct[] = [];
-  selectedProduct = new Subject<IProduct>();
+  selectedProduct = null;
 
   constructor(private http: HttpClient, private authservice: AuthService,private route:Router) { }
 
@@ -55,9 +55,16 @@ export class ProductsService {
   }
 
   selectProduct(product: IProduct) {
-    console.log(product);
-    this.selectedProduct.next(product);
+
+    const prod = product;
+   
+    this.selectedProduct= prod;
+    console.log(prod);
     this.route.navigate(['/single-product'])
+  }
+
+  getSelected() {
+    return this.selectedProduct;
   }
 
 

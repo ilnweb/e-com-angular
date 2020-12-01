@@ -12,10 +12,10 @@ export class SingleProductComponent implements OnInit {
 
   constructor(private productsService: ProductsService) { }
 
-  ngOnInit(): void {
-    this.productsService.selectedProduct.subscribe(product => {
-      this.product = product;
-    })
+  ngOnInit() {
+    this.product = this.productsService.getSelected()
   }
+
+
 
 }

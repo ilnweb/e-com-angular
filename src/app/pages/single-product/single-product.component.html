@@ -1,14 +1,20 @@
-<div class="single-product" fxLayout="column" fxLayoutAlign="start center">
-  <h1>Title</h1>
+<div class="single-product" fxLayout="column" fxLayoutAlign="start center" *ngIf='product'>
+  <h1 class="mat-display-2">{{product.title}}</h1>
   <div class="single-product_container" fxLayout="row" fxLayoutAlign="center center">
-    <div class="single-product_img" style="background-image:url(https://res.cloudinary.com/ilnphotography/image/upload/v1592561182/dev-social.jpg)"> asasDad</div>
+    <div class="single-product_img" fxLayout="row" fxLayoutAlign="center center">
+      <img src="{{product.imageUrl}}" alt="">
+    </div>
     <div class="single-product_info">
-      <h2>title</h2>
-      <p>seller</p>
-      <p>description</p>
-      <p>cathegory</p>
-      <p>price</p>
-      <button mat-raised-button color="primary">ADD TO CARD</button>
+      <div>
+        <p><strong>Category: </strong> {{product.category}}</p>
+        <p  style="margin-top: 2rem;"><strong>Description: </strong></p>
+        <p>{{product.description}}</p>
+        <p style="margin-top: 2rem;"><strong>Seller: </strong> Iliyan</p>
+      </div>
+      <div>
+        <p><strong>Price: </strong> {{product.price}}$</p>
+        <button mat-raised-button color="primary">ADD TO CARD</button>
+      </div>
     </div>
   </div>
 </div>
