@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'cart', component: ShoppingCartComponent },
   { path: 'create-product', component: CreateProductComponent },
   { path: 'purchase-history', component: PurchaseHistoryComponent },
-  { path: 'single-product', component: SingleProductComponent },
+  { path: 'single-product/:id', component: SingleProductComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

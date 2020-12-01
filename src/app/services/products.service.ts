@@ -60,7 +60,7 @@ export class ProductsService {
    
     this.selectedProduct= prod;
     console.log(prod);
-    this.route.navigate(['/single-product'])
+    this.route.navigate([`/single-product/${product._id}`])
   }
 
   getSelected() {
