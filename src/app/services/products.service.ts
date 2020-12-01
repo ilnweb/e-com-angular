@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { IProduct } from '../models/product.model';
 import { AuthService } from './auth.service';
@@ -10,8 +11,9 @@ import { AuthService } from './auth.service';
 export class ProductsService {
   productsChanged = new Subject<IProduct[]>();
   private products: IProduct[] = [];
+  selectedProduct = new Subject<IProduct>();
 
-  constructor(private http: HttpClient, private authservice: AuthService) { }
+  constructor(private http: HttpClient, private authservice: AuthService,private route:Router) { }
 
   getLocalProducts() {
     return this.products;
@@ -51,4 +53,12 @@ export class ProductsService {
       })
     }
   }
+
+  selectProduct(product: IProduct) {
+    console.log(product);
+    this.selectedProduct.next(product);
+    this.route.navigate(['/single-product'])
+  }
+
+
 }

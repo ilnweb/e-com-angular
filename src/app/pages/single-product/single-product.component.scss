@@ -1,0 +1,18 @@
+.single-product{
+  padding: 5%;
+
+  &_container{
+    width: 100%;
+  }
+
+  &_img{
+    width: 50%;
+    height: 30rem;
+    background-size: cover;
+    background-position: center;
+  }
+  &_info{
+    width: 50%;
+    height: 100%;
+  }
+}

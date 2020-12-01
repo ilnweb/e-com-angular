@@ -12,10 +12,16 @@
     margin-top: 1rem;
   }
 
-  img {
-    height: 15rem;
-    max-width: 100%;
+  &_image-container {
+    cursor: pointer;
+    width: 100%;
+    img {
+      height: 15rem;
+      max-width: 100%;
+    }
+
   }
+
 
   p {
     font-size: 1.2rem;

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { ProductsService } from 'src/app/services/products.service';
 import { IProduct } from '../../models/product.model';
 
 
@@ -9,10 +9,15 @@ import { IProduct } from '../../models/product.model';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Input() product:IProduct;
-  constructor() { }
+  @Input() product: IProduct;
+  
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
+  }
+
+  selectProduct(product:IProduct) {
+    this.productsService.selectProduct(product);
   }
 
 }
