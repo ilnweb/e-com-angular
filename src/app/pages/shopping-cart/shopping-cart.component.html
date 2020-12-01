@@ -1,7 +1,13 @@
 <div class="shopping-cart" fxLayout="column" fxLayoutAlign="start center">
-  <h1 class="mat-display-2">Your Cart</h1>
+  <h1 class="mat-display-2">Your Shopping Cart</h1>
+  <hr>
   <div class="shopping-cart-products-container">
   </div>
+  <div *ngIf='products.length<1'>
+    <app-empty [title]="'You didn\'t add any products yet!'" [icon]="'remove_shopping_cart'"></app-empty>
+  </div>
+  <div *ngIf='products.length>1'>
   <h2>Total: 3123$</h2>
-  <button mat-raised-button color="primary" type="button">Pay Now</button>
+  <button mat-raised-button color="primary" type="button" >Pay Now</button>
+</div>
 </div>
