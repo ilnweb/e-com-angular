@@ -27,6 +27,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SingleProductComponent } from './pages/single-product/single-product.component';
+import { EmptyComponent } from './components/empty/empty.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { SingleProductComponent } from './pages/single-product/single-product.co
     ShoppingCartComponent,
     PurchaseHistoryComponent,
     SingleProductComponent,
+    EmptyComponent,
     
    
   ],

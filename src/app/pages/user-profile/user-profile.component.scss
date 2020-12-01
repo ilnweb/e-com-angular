@@ -4,6 +4,7 @@
 
   &-header {
     margin-top: 2rem;
+    padding: 2rem;
     width: 60%;
     min-height: 20rem;
     justify-content: space-around;
@@ -13,23 +14,21 @@
 
     &-imagebox {
       overflow: hidden;
-      width: 15rem;
-      height: 15rem;
+      width: 7rem;
+      height: 7rem;
       border-radius: 100%;
       background-position: center;
       background-size: cover;
+      margin-right: 2rem;
     }
 
     &-info {
+      margin-top: 2rem;
       align-items: space-around;
 
       button {
         margin: .5rem 0;
       }
-    }
-
-    img {
-      width: 20rem;
     }
   }
 }

@@ -1,11 +1,15 @@
 <div class="user_profile " fxLayout="column" fxLayoutAlign="start center">
-  <div class="user_profile-header" fxLayout="row">
-    <div class="user_profile-header-imagebox"
-      style="background-image: url(https://res.cloudinary.com/ilnphotography/image/upload/v1592561182/dev-social.jpg);">
+  <div class="user_profile-header" fxLayout="column">
+    <div fxLayout="row">
+      <div class="user_profile-header-imagebox"
+        style="background-image: url(https://res.cloudinary.com/ilnphotography/image/upload/v1592561182/dev-social.jpg);">
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center start">
+        <h1 style="margin: 0" class="user_profile-name">Iliyan</h1>
+        <h2 class="user_profile-info">ilqnts@gmail.com</h2>
+      </div>
     </div>
     <div class="user_profile-header-info" fxLayout="column">
-      <h1 class="user_profile-name">Iliyan</h1>
-      <h2 class="user_profile-info">ilqnts@gmail.com</h2>
       <a routerLink="/create-product"><button mat-raised-button color="primary">Create new Product</button></a>
       <a routerLink="/purchase-history"><button mat-raised-button color="primary">View purchaise history</button></a>
     </div>
@@ -13,9 +17,12 @@
   <div class="user_profile-user-items" fxLayout="column" fxLayoutAlign="center center">
     <h1 class="mat-display-2">Your pusblished products</h1>
     <hr>
-    <div class="user_profile-products-lins" fxLayout="row" fxLayoutAlign="center center">
+    <div class="user_profile-products-lins" *ngIf='products' fxLayout="row" fxLayoutAlign="center center">
       <!-- <app-card></app-card> -->
-      
+
+    </div>
+    <div *ngIf='!products'>
+      <app-empty [title]="'You didnt create any products yet!'" [icon]="'move_to_inbox'"></app-empty>
     </div>
   </div>
 </div>
