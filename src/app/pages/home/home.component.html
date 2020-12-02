@@ -21,7 +21,10 @@
 
   <h1 class="mat-display-2">Latest Products</h1>
   <hr>
-  <div class="home-page_latest-products" *ngIf='products' fxLayout="row">
+  <div class="spinner" fxLayout="column" fxLayoutAlign="center center" *ngIf='products.length<1'>
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="home-page_latest-products" *ngIf='products.length>1' fxLayout="row">
     <div *ngFor='let product of products'>
       <app-card [product]='product'></app-card>
     </div>
