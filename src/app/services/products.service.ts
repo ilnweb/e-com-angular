@@ -48,7 +48,7 @@ export class ProductsService {
         price,
       }, {
         headers: {
-          Authorization: "Bearer " + 'dasdad',
+          Authorization: "Bearer " + token,
         },
       })
     }

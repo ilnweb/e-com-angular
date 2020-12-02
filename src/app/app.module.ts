@@ -28,6 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SingleProductComponent } from './pages/single-product/single-product.component';
 import { EmptyComponent } from './components/empty/empty.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
+
+
 
 
 @NgModule({
@@ -63,7 +66,8 @@ import { EmptyComponent } from './components/empty/empty.component';
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxFileDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

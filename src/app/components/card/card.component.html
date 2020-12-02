@@ -1,8 +1,10 @@
-<div class="card">
-  <div class="card_image-container"  (click)='selectProduct(product)' fxLayout="row" fxLayoutAlign="center center">
-  <img src={{product.imageUrl}} alt="">
-</div>
+<div class="card" fxLayout="column">
+  <div class="card_image-container" (click)='selectProduct(product)' fxLayout="row" fxLayoutAlign="center center">
+    <img src={{product.imageUrl}} alt="">
+  </div>
+  <div fxLayout="column" fxLayoutAlign="center center">
   <h1 class="card-title">{{product.title}}</h1>
   <p class="price">{{product.price}}$</p>
   <button mat-raised-button color="primary">ADD TO CARD</button>
+</div>
 </div>
