@@ -7,13 +7,18 @@
     <div class="single-product_info">
       <div>
         <p><strong>Category: </strong> {{product.category}}</p>
-        <p  style="margin-top: 2rem;"><strong>Description: </strong></p>
+        <p style="margin-top: 2rem;"><strong>Description: </strong></p>
         <p>{{product.description}}</p>
         <p style="margin-top: 2rem;"><strong>Seller: </strong> Iliyan</p>
       </div>
       <div>
         <p><strong>Price: </strong> {{product.price}}$</p>
-        <button mat-raised-button color="primary">ADD TO CARD</button>
+        <button *ngIf='user?.id!==product.creator' mat-raised-button color="primary">ADD TO CARD</button>
+        <div *ngIf='user?.id===product.creator'>
+          <button mat-raised-button color="primary">EDIT</button>
+          <button style="margin-left:1rem;" mat-raised-button color="warn">DELETE</button>
+
+        </div>
       </div>
     </div>
   </div>

@@ -17,7 +17,6 @@ export class ShopComponent implements OnInit {
     if (category !== 'all-products') {
       this.productsService.getFiltered(category).subscribe((res: any) => {
         this.products = res.products;
-        console.log(this.products);
       });
     }
     else{

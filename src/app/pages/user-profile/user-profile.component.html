@@ -6,8 +6,8 @@
       </div>
       <div fxLayout="column" fxLayoutAlign="center start">
         <h1 style="margin: 0" class="user_profile-name">{{user.displayName}}</h1>
-        <h2 class="user_profile-info" style="margin: 0">ilqnts@gmail.com</h2>
-        <p>Joined: 03/03/2020</p>
+        <h2 class="user_profile-info" style="margin: 0">{{user.email}}</h2>
+        <p>Joined: {{user.createdAt|date}}</p>
       </div>
     </div>
     <div class="user_profile-header-info" fxLayout="column">

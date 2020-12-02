@@ -3,8 +3,14 @@
     <img src={{product.imageUrl}} alt="">
   </div>
   <div fxLayout="column" fxLayoutAlign="center center">
-  <h1 class="card-title">{{product.title}}</h1>
-  <p class="price">{{product.price}}$</p>
-  <button mat-raised-button color="primary">ADD TO CARD</button>
-</div>
+    <h1 class="card-title">{{product.title}}</h1>
+    <p class="price">{{product.price}}$</p>
+
+    <button *ngIf='user?.id!==product.creator' mat-raised-button color="primary">ADD TO CARD</button>
+    <div *ngIf='user?.id===product.creator'>
+      <button mat-raised-button color="primary">EDIT</button>
+      <button style="margin-left:1rem;" mat-raised-button color="warn">DELETE</button>
+
+    </div>
+  </div>
 </div>

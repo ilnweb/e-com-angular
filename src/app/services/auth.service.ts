@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IUser } from '../models/user.model';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user = new Subject<IUser>();
-
+  user = new BehaviorSubject<IUser>(null);
+  // user: IUser = null;
+  readonly user$ = this.user.asObservable();
   constructor(private http: HttpClient) { }
+
+  get userGet(): IUser {
+    return this.user.getValue();
+  }
 
   register(email: string, password: string, displayName: string) {
     return this.http.post('http://localhost:5000/auth/register', {
@@ -58,4 +63,5 @@ export class AuthService {
     localStorage.removeItem('token');
     this.user = null;
   }
+
 }

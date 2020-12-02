@@ -14,12 +14,7 @@ export class ProductsService {
 
   constructor(private http: HttpClient, private authservice: AuthService,private route:Router) { }
 
-  getLocalProducts() {
-    return this.products;
-  }
-
   getAllProducts() {
-    console.log('reached');
     return this.http.get('http://localhost:5000/shop/products').subscribe((res: any) => {
       this.products.next(res.products);
       
@@ -27,7 +22,6 @@ export class ProductsService {
   }
 
   getLatestProducts() {
-    console.log('reached');
     return this.http.get('http://localhost:5000/shop/products').subscribe((res: any) => {
       this.products.next(res.products.reverse().splice(0, 3));
     })

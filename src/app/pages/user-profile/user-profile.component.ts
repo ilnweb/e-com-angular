@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { IUser } from '../../models/user.model';
 
@@ -7,15 +8,20 @@ import { IUser } from '../../models/user.model';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
-export class UserProfileComponent implements OnInit {
-  user:IUser = null;
+export class UserProfileComponent implements OnInit, OnDestroy {
+  user: IUser = null;
+  private activeSubscription: Subscription;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.authService.user.subscribe((user:IUser) => {
+    this.activeSubscription = this.authService.user.subscribe((user: IUser) => {
       this.user = user;
     })
+  }
+
+  ngOnDestroy() {
+    this.activeSubscription.unsubscribe()
   }
 
 }

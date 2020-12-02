@@ -5,4 +5,5 @@ export interface IProduct {
   imageUrl: string;
   description: string;
   price: number;
+  creator:string
 }
