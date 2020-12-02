@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsService.getLatestProducts();
-    this.productsService.productsChanged.subscribe((products:IProduct[]) => {
+    this.productsService.products.subscribe((products:IProduct[]) => {
       this.products = products;
     })
     console.log(this.products);

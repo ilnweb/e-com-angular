@@ -9,8 +9,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class ProductsService {
-  productsChanged = new Subject<IProduct[]>();
-  private products: IProduct[] = [];
+  products = new Subject<IProduct[]>();
   selectedProduct = null;
 
   constructor(private http: HttpClient, private authservice: AuthService,private route:Router) { }
@@ -22,18 +21,15 @@ export class ProductsService {
   getAllProducts() {
     console.log('reached');
     return this.http.get('http://localhost:5000/shop/products').subscribe((res: any) => {
-      this.products = [...res.products]
-      this.productsChanged.next(this.products);
-      console.log(this.products);
+      this.products.next(res.products);
+      
     })
   }
 
   getLatestProducts() {
     console.log('reached');
     return this.http.get('http://localhost:5000/shop/products').subscribe((res: any) => {
-      this.products = [...res.products]
-      this.productsChanged.next(this.products.reverse().splice(0, 3));
-      console.log(this.products);
+      this.products.next(res.products.reverse().splice(0, 3));
     })
   }
 
@@ -57,7 +53,6 @@ export class ProductsService {
   selectProduct(product: IProduct) {
     const prod = product;
     this.selectedProduct= prod;
-    console.log(prod);
     this.route.navigate([`/single-product/${product._id}`])
   }
 
@@ -66,7 +61,10 @@ export class ProductsService {
   }
 
   getFiltered(category: string) {
-    return this.products.filter(item => item.category !== category);
+    console.log(category);
+    return this.http.post('http://localhost:5000/shop/filtered-products', {
+      category
+    })
   }
 
 
