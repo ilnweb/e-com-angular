@@ -2,21 +2,27 @@
   <div class="home-page_hero"></div>
   <h1 class="mat-display-2">Cathegories</h1>
   <hr>
+
   <div class="home-page_cathegories">
-    <div class="home-page_card" (click)='setCategory("cameras")'>
-      <img src="https://static.bhphoto.com/images/images1000x1000/1594281159_1573879.jpg" alt="">
-      <h1 class="home-page_card-title">Cameras</h1>
-    </div>
-
-    <div class="home-page_card" (click)='setCategory("lenses")'>
-      <img src="https://www.travelanddestinations.com/wp-content/uploads/2018/05/Camera-lenses-CC0-Pixabay.jpg" alt="">
-      <h1 class="home-page_card-title">Lenses</h1>
-    </div>
-
-    <div class="home-page_card" (click)='setCategory("accessories")'>
-      <img src="https://5.imimg.com/data5/JT/WW/MY-27296182/tripod-for-video-500x500.jpg" alt="">
-      <h1 class="home-page_card-title">Accessories</h1>
-    </div>
+    <a routerLink="/shop/cameras">
+      <div class="home-page_card">
+        <img src="https://static.bhphoto.com/images/images1000x1000/1594281159_1573879.jpg" alt="">
+        <h1 class="home-page_card-title">Cameras</h1>
+      </div>
+    </a>
+    <a routerLink="/shop/lenses">
+      <div class="home-page_card">
+        <img src="https://www.travelanddestinations.com/wp-content/uploads/2018/05/Camera-lenses-CC0-Pixabay.jpg"
+          alt="">
+        <h1 class="home-page_card-title">Lenses</h1>
+      </div>
+    </a>
+    <a routerLink="/shop/accessories">
+      <div class="home-page_card">
+        <img src="https://5.imimg.com/data5/JT/WW/MY-27296182/tripod-for-video-500x500.jpg" alt="">
+        <h1 class="home-page_card-title">Accessories</h1>
+      </div>
+    </a>
   </div>
 
   <h1 class="mat-display-2">Latest Products</h1>

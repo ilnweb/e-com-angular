@@ -18,10 +18,4 @@ export class HomeComponent implements OnInit {
     })
     console.log(this.products);
   }
-
-  setCategory(category:string) {
-    
-  }
-
-  
 }

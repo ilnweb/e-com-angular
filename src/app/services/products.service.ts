@@ -55,9 +55,7 @@ export class ProductsService {
   }
 
   selectProduct(product: IProduct) {
-
     const prod = product;
-   
     this.selectedProduct= prod;
     console.log(prod);
     this.route.navigate([`/single-product/${product._id}`])
@@ -65,6 +63,10 @@ export class ProductsService {
 
   getSelected() {
     return this.selectedProduct;
+  }
+
+  getFiltered(category: string) {
+    return this.products.filter(item => item.category !== category);
   }
 
 
