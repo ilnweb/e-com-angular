@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { ProductsService } from './services/products.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,10 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AppComponent implements OnInit{
   title = 'e-com-angular';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,private productsService: ProductsService) { }
 
   ngOnInit() {
     this.authService.autoLogin()
+    this.productsService.getAllProducts()
   }
 }

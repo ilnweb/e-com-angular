@@ -39,16 +39,19 @@ export class AuthService {
 
   autoLogin() {
     const token = localStorage.getItem('token')
-    return this.http.post('http://localhost:5000/auth/login-auto', {},
-      {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      }).subscribe((res: any) => {
-        const user = res.user;
-        this.user.next(user);
-        console.log(user);
-      })
+    if (token) {
+      return this.http.post('http://localhost:5000/auth/login-auto', {},
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }).subscribe((res: any) => {
+          const user = res.user;
+          this.user.next(user);
+          console.log(user);
+        })
+    }
+
   }
 
   logout() {

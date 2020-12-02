@@ -1,11 +1,11 @@
-<div class="user_profile " fxLayout="column" fxLayoutAlign="start center">
+<div class="user_profile " fxLayout="column" fxLayoutAlign="start center" *ngIf='user'>
   <div class="user_profile-header" fxLayout="row">
     <div fxLayout="row">
       <div class="user_profile-header-imagebox"
         style="background-image: url(https://res.cloudinary.com/ilnphotography/image/upload/v1592561182/dev-social.jpg);">
       </div>
       <div fxLayout="column" fxLayoutAlign="center start">
-        <h1 style="margin: 0" class="user_profile-name">Iliyan</h1>
+        <h1 style="margin: 0" class="user_profile-name">{{user.displayName}}</h1>
         <h2 class="user_profile-info" style="margin: 0">ilqnts@gmail.com</h2>
         <p>Joined: 03/03/2020</p>
       </div>
@@ -31,11 +31,13 @@
         <mat-icon>format_list_bulleted</mat-icon>
       </button>
     </mat-toolbar>
-    <div class="user_profile-products-lins" *ngIf='products' fxLayout="row" fxLayoutAlign="center center">
-      <!-- <app-card></app-card> -->
+    <div class="user_profile-products-lins" *ngIf='user' fxLayout="row" fxLayoutAlign="center center">
+      <div *ngFor='let product of user.products'>
+        <app-card [product]='product'></app-card>
+      </div>
 
     </div>
-    <div *ngIf='!products'>
+    <div *ngIf='!user'>
       <app-empty [title]="'You didnt create any products yet!'" [icon]="'move_to_inbox'"></app-empty>
     </div>
   </div>
