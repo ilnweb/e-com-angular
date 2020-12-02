@@ -6,8 +6,13 @@
   <div *ngIf='products.length<1'>
     <app-empty [title]="'You didn\'t add any products yet!'" [icon]="'remove_shopping_cart'"></app-empty>
   </div>
-  <div *ngIf='products.length>1'>
-  <h2>Total: 3123$</h2>
-  <button mat-raised-button color="primary" type="button" >Pay Now</button>
-</div>
+  <div class="home-page_latest-products" *ngIf='products.length > 0' fxLayout="row">
+    <div *ngFor='let product of products'>
+      <app-card [product]='product'></app-card>
+    </div>
+  </div>
+  <div *ngIf='products.length>0'>
+    <h2>Total: {{totalToPay}}$</h2>
+    <button mat-raised-button color="primary" type="button">Pay Now</button>
+  </div>
 </div>
