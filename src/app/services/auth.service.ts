@@ -54,7 +54,7 @@ export class AuthService {
             Authorization: "Bearer " + token,
           },
         }).subscribe((res: any) => {
-          const user = res.user;
+          const user:IUser = res.user;
           this.user.next(user);
           console.log(user);
         })

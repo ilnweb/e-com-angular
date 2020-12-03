@@ -3,7 +3,7 @@ export interface IUser {
   id: string
   email: string
   displayName: string
-  imageUlr?: string
+  imageUrl: string
   products: IProduct[]
   purchased: IProduct[]
   _token: string
