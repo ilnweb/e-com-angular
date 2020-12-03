@@ -10,16 +10,22 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { SingleProductComponent } from './pages/single-product/single-product.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { AuthGuard } from './services/auth.guard';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'profile', component: UserProfileComponent },
+  {
+    path: 'profile',
+    canActivate: [AuthGuard],
+    component: UserProfileComponent
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'shop/:category', component: ShopComponent },
   { path: 'cart', component: ShoppingCartComponent },
-  { path: 'create-product', component: CreateProductComponent },
-  { path: 'purchase-history', component: PurchaseHistoryComponent },
+  { path: 'create-product', canActivate: [AuthGuard], component: CreateProductComponent },
+  { path: 'purchase-history', canActivate: [AuthGuard], component: PurchaseHistoryComponent },
   { path: 'single-product/:id', component: SingleProductComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

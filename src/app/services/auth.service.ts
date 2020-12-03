@@ -27,6 +27,7 @@ export class AuthService {
       const user = res.user;
       this.user.next(user);
       console.log(this.user);
+      this.route.navigate(['/'])
     })
   }
 
