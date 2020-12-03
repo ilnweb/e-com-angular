@@ -61,5 +61,12 @@ export class ProductsService {
     })
   }
 
+  getSingleProduct(id: string) {
+    console.log(id);
+    return this.http.post('http://localhost:5000/shop/single-product', {
+      id
+    })
+  }
+
 
 }
