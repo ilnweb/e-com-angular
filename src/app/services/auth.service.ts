@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IUser } from '../models/user.model';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthService {
   user = new BehaviorSubject<IUser>(null);
   // user: IUser = null;
   readonly user$ = this.user.asObservable();
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: Router) { }
 
   get userGet(): IUser {
     return this.user.getValue();
@@ -39,6 +40,7 @@ export class AuthService {
       this.user.next(user);
       console.log(this.user);
       localStorage.setItem('token', user._token)
+      this.route.navigate(['/'])
     })
   }
 
@@ -61,7 +63,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
-    this.user = null;
+    this.user.next(null);
   }
 
 }
