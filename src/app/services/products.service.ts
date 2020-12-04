@@ -12,7 +12,7 @@ export class ProductsService {
   products = new Subject<IProduct[]>();
   selectedProduct = null;
 
-  constructor(private http: HttpClient, private authservice: AuthService,private route:Router) { }
+  constructor(private http: HttpClient, private authservice: AuthService, private route: Router) { }
 
   getAllProducts() {
     return this.http.get('http://localhost:5000/shop/products').subscribe((res: any) => {
@@ -23,7 +23,7 @@ export class ProductsService {
 
   getLatestProducts() {
     return this.http.get('http://localhost:5000/shop/products').subscribe((res: any) => {
-      this.products.next(res.products.reverse().splice(0, 3));
+      this.products.next(res.products.reverse().splice(0, 4));
     })
   }
 
@@ -46,7 +46,7 @@ export class ProductsService {
 
   selectProduct(product: IProduct) {
     const prod = product;
-    this.selectedProduct= prod;
+    this.selectedProduct = prod;
     this.route.navigate([`/single-product/${product._id}`])
   }
 
@@ -68,5 +68,6 @@ export class ProductsService {
     })
   }
 
+ 
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { IProduct } from '../../models/product.model';
 
@@ -9,14 +10,18 @@ import { IProduct } from '../../models/product.model';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-  products = [];
+  products:IProduct[] = [];
   totalToPay: number = 0;
 
-  constructor(private cartService:CartService) { }
+  constructor(private cartService:CartService,private authService:AuthService) { }
 
   ngOnInit(): void {
     this.products = this.cartService.getCart;
     this.totalToPay= this.products.reduce((acc:number,item)=> +acc + +item.price,0)
+  }
+
+  onPurchase() {
+    this.authService.addProductsFromCart(this.products);
   }
 
 }

@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
       this.user = user;
     })
     this.cartService.cartChange.subscribe(cart => {
-      this.productsLength = cart.length;
+      this.productsLength = cart.length ? cart.length : 0;
     });
   }
 
