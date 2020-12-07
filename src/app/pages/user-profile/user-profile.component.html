@@ -31,13 +31,13 @@
         <mat-icon>format_list_bulleted</mat-icon>
       </button>
     </mat-toolbar>
-    <div class="user_profile-products-lins" *ngIf='user' fxLayout="row" fxLayoutAlign="center center">
+    <div class="user_profile-products-list" *ngIf='user' fxLayout="row" fxLayoutAlign="center center">
       <div *ngFor='let product of user.products'>
         <app-card [product]='product'></app-card>
       </div>
 
     </div>
-    <div *ngIf='!user'>
+    <div *ngIf='user.products.length < 1'>
       <app-empty [title]="'You didnt create any products yet!'" [icon]="'move_to_inbox'"></app-empty>
     </div>
   </div>

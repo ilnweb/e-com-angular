@@ -33,6 +33,10 @@
   &-user-items{
     width: 100%;
   }
+
+  &-products-list{
+   flex-wrap: wrap;
+  }
 }
 
 .example-spacer {
