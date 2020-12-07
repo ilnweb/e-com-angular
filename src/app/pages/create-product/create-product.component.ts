@@ -1,4 +1,4 @@
-import {Router} from "@angular/router"
+import { Router } from "@angular/router"
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ProductsService } from '../../services/products.service';
@@ -12,24 +12,24 @@ import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 
 })
 export class CreateProductComponent implements OnInit {
 
-  constructor(private productsService: ProductsService, private route:Router) { }
+  constructor(private productsService: ProductsService, private route: Router) { }
 
   ngOnInit(): void {
   }
   public files: NgxFileDropEntry[] = [];
- 
+
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
     for (const droppedFile of files) {
- 
+
       // Is it a file?
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
- 
+
           // Here you can access the real file
           console.log(droppedFile.relativePath, file);
- 
+
           /**
           // You could upload it like this:
           const formData = new FormData()
@@ -45,7 +45,7 @@ export class CreateProductComponent implements OnInit {
             // Sanitized logo returned from backend
           })
           **/
- 
+
         });
       } else {
         // It was a directory (empty directories are added, otherwise only files)
@@ -54,12 +54,12 @@ export class CreateProductComponent implements OnInit {
       }
     }
   }
- 
-  public fileOver(event){
+
+  public fileOver(event) {
     console.log(event);
   }
- 
-  public fileLeave(event){
+
+  public fileLeave(event) {
     console.log(event);
   }
 
@@ -67,14 +67,10 @@ export class CreateProductComponent implements OnInit {
     if (!form.valid) {
       return;
     }
-    const { title,category, imageUrl, description, price } = form.value;
+    const { title, category, imageUrl, description, price } = form.value;
     this.productsService.createProduct(
-      title,category, imageUrl, description, price
-    ).subscribe(resData => {
-      if (resData) {
-        this.route.navigate(['/'])
-      }
-    })
+      title, category, imageUrl, description, price
+    )
   }
 
 }

@@ -40,6 +40,10 @@ export class ProductsService {
         headers: {
           Authorization: "Bearer " + token,
         },
+      }).subscribe(resData => {
+        if (resData) {
+          this.route.navigate(['/'])
+        }
       })
     }
   }
