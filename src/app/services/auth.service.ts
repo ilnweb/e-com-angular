@@ -82,7 +82,7 @@ export class AuthService {
         const user:IUser = res.user;
         this.user.next(user);
         console.log(user);
-        this.cartService.cartChange.next(null);
+        this.cartService.shoppingCart.next([]);
         this.route.navigate(['/profile'])
       })
     }

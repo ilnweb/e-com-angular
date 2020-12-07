@@ -3,6 +3,7 @@
   <hr>
   <div class="shopping-cart-products-container">
   </div>
+  <div *ngIf='products'>
   <div *ngIf='products.length<1'>
     <app-empty [title]="'You didn\'t add any products yet!'" [icon]="'remove_shopping_cart'"></app-empty>
   </div>
@@ -15,4 +16,5 @@
     <h2>Total: {{totalToPay}}$</h2>
     <button mat-raised-button color="primary" type="button" (click)='onPurchase()'>Pay Now</button>
   </div>
+</div>
 </div>

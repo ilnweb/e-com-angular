@@ -9,21 +9,15 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class CartService {
-  cartChange = new Subject<IProduct[]>();
-  cart: IProduct[] = [];
-
-
-  get getCart() {
-    return this.cart;
-  }
+  shoppingCart = new BehaviorSubject<IProduct[]>([]);
 
   addTocart(product:IProduct) {
-    this.cart = [
-      ...this.cart,
+    const cart = [
+      ...this.shoppingCart.value,
       product
     ]
-    this.cartChange.next(this.cart)
-    console.log(this.cart);
+    this.shoppingCart.next(cart)
+    console.log(cart);
   }
   
 }

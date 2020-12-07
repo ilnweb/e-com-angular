@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
     this.authService.user.subscribe(user => {
       this.user = user;
     })
-    this.cartService.cartChange.subscribe(cart => {
+    this.cartService.shoppingCart.subscribe(cart => {
       if(cart){
         this.productsLength = cart.length;
       } else {

@@ -16,7 +16,9 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private cartService:CartService,private authService:AuthService) { }
 
   ngOnInit(): void {
-    this.products = this.cartService.getCart;
+    this.cartService.shoppingCart.subscribe(products => {
+      this.products = products;
+    })
     this.totalToPay= this.products.reduce((acc:number,item)=> +acc + +item.price,0)
   }
 
