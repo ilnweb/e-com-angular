@@ -47,19 +47,18 @@ export class AuthService {
     })
   }
 
-  autoLogin() {
+  async autoLogin() {
     const token = localStorage.getItem('token')
     if (token) {
-      return this.http.post('http://localhost:5000/auth/login-auto', {},
+      const res:any = await this.http.post('http://localhost:5000/auth/login-auto', {},
         {
           headers: {
             Authorization: "Bearer " + token,
           },
-        }).subscribe((res: any) => {
-          const user:IUser = res.user;
-          this.user.next(user);
-          console.log(user);
-        })
+        }).toPromise()
+        const user:IUser = res.user;
+        this.user.next(user);
+        console.log(res);
     }
 
   }

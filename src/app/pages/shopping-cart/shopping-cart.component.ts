@@ -22,6 +22,7 @@ export class ShoppingCartComponent implements OnInit {
 
   onPurchase() {
     this.authService.addProductsFromCart(this.products);
+    this.products = null;
   }
 
 }
