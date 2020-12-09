@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { IProduct } from 'src/app/models/product.model';
+import { IUser } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-purchase-history',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PurchaseHistoryComponent implements OnInit {
 
-  constructor() { }
+  products: IProduct[] = [];
+  private activeSubscription: Subscription;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.activeSubscription = this.authService.user.subscribe((user: IUser) => {
+      this.products = user.purchased;
+    })
   }
 
+  ngOnDestroy() {
+    this.activeSubscription.unsubscribe()
+  }
 }

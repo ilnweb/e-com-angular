@@ -1,8 +1,7 @@
 <div class="user_profile " fxLayout="column" fxLayoutAlign="start center" *ngIf='user'>
   <div class="user_profile-header" fxLayout="row">
     <div fxLayout="row">
-      <div class="user_profile-header-imagebox"
-        style="background-image: url('{{user.imageUrl}}');">
+      <div class="user_profile-header-imagebox" style="background-image: url('{{user.imageUrl}}');">
       </div>
       <div fxLayout="column" fxLayoutAlign="center start">
         <h1 style="margin: 0" class="user_profile-name">{{user.displayName}}</h1>
@@ -32,9 +31,7 @@
       </button>
     </mat-toolbar>
     <div class="user_profile-products-list" *ngIf='user' fxLayout="row" fxLayoutAlign="center center">
-      <div *ngFor='let product of user.products'>
-        <app-card [product]='product'></app-card>
-      </div>
+      <app-product-list [products]='user.products'></app-product-list>
 
     </div>
     <div *ngIf='user.products.length < 1'>

@@ -1,1 +1,7 @@
-<p>purchase-history works!</p>
+<div fxLayout='column' fxLayoutAlign='start center '>
+  <h1>Products you purchase</h1>
+
+  <div *ngIf='products'>
+    <app-product-list [products]='products'></app-product-list>
+  </div>
+</div>

@@ -29,6 +29,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SingleProductComponent } from './pages/single-product/single-product.component';
 import { EmptyComponent } from './components/empty/empty.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 
 
@@ -51,6 +52,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     PurchaseHistoryComponent,
     SingleProductComponent,
     EmptyComponent,
+    ProductListComponent,
     
    
   ],
