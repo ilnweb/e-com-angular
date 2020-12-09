@@ -18,7 +18,9 @@ export class PurchaseHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeSubscription = this.authService.user.subscribe((user: IUser) => {
-      this.products = user.purchased;
+      if (user) {
+        this.products = user.purchased;
+      }
     })
   }
 
