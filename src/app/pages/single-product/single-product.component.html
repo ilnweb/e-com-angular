@@ -9,12 +9,12 @@
         <p><strong>Category: </strong> {{product.category}}</p>
         <p style="margin-top: 2rem;"><strong>Description: </strong></p>
         <p>{{product.description}}</p>
-        <p style="margin-top: 2rem;"><strong>Seller: </strong> Iliyan</p>
+        <p style="margin-top: 2rem;"><strong>Seller: </strong> {{product.creator.displayName}}</p>
       </div>
       <div>
         <p><strong>Price: </strong> {{product.price}}$</p>
-        <button *ngIf='user?.id!==product.creator' mat-raised-button color="primary">ADD TO CARD</button>
-        <div *ngIf='user?.id===product.creator'>
+        <button *ngIf='user.id!==product.creator._id' mat-raised-button color="primary">ADD TO CARD</button>
+        <div *ngIf='user.id===product.creator._id'>
           <button mat-raised-button color="primary">EDIT</button>
           <button style="margin-left:1rem;" mat-raised-button color="warn">DELETE</button>
 

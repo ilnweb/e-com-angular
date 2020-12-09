@@ -1,3 +1,4 @@
+import { ViewFlags } from '@angular/compiler/src/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
@@ -14,7 +15,7 @@ import { IUser } from '../../models/user.model';
 export class CardComponent implements OnInit {
   @Input() product: IProduct;
   @Input() displayButton?:boolean=true;
-  user: IUser = null;
+  @Input() user: IUser = null;
   
   constructor(private productsService: ProductsService, private authService: AuthService,private cartService:CartService) { }
 
@@ -23,6 +24,8 @@ export class CardComponent implements OnInit {
       if (user) {
         this.user = user;
       }
+      console.log(this.product);
+      console.log(this.user);
      
     })
   }

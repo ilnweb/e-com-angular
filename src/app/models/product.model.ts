@@ -5,5 +5,9 @@ export interface IProduct {
   imageUrl: string;
   description: string;
   price: number;
-  creator:string
+  creator: {
+    displayName: string;
+    imageUrl: string;
+    _id: string;
+  }
 }

@@ -7,9 +7,9 @@
     <p class="price">{{product.price}}$</p>
 
     <div *ngIf='displayButton'>
-      <button *ngIf='user.id!==product.creator' mat-raised-button color="primary" (click)='addToCart(product)'>ADD TO
+      <button *ngIf='user.id!==product.creator._id' mat-raised-button color="primary" (click)='addToCart(product)'>ADD TO
         CARD</button>
-      <div *ngIf='user.id===product.creator'>
+      <div *ngIf='user.id===product.creator._id'>
         <button mat-raised-button color="primary">EDIT</button>
         <button style="margin-left:1rem;" mat-raised-button color="warn">DELETE</button>
 

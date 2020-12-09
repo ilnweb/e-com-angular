@@ -32,7 +32,6 @@
     </mat-toolbar>
     <div class="user_profile-products-list" *ngIf='user' fxLayout="row" fxLayoutAlign="center center">
       <app-product-list [products]='user.products'></app-product-list>
-
     </div>
     <div *ngIf='user.products.length < 1'>
       <app-empty [title]="'You didnt create any products yet!'" [icon]="'move_to_inbox'"></app-empty>
