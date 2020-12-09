@@ -7,7 +7,8 @@ import { IProduct } from 'src/app/models/product.model';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-  @Input() products:IProduct[]
+  @Input() products: IProduct[]
+  @Input() displayButton?:boolean=true;
 
   constructor() { }
 

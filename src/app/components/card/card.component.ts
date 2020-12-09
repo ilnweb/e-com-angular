@@ -13,13 +13,17 @@ import { IUser } from '../../models/user.model';
 })
 export class CardComponent implements OnInit {
   @Input() product: IProduct;
+  @Input() displayButton?:boolean=true;
   user: IUser = null;
   
   constructor(private productsService: ProductsService, private authService: AuthService,private cartService:CartService) { }
 
   ngOnInit() {
     this.authService.user.subscribe((user: IUser) => {
-      this.user = user;
+      if (user) {
+        this.user = user;
+      }
+     
     })
   }
 
