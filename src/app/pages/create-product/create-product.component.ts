@@ -2,7 +2,6 @@ import { Router } from "@angular/router"
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ProductsService } from '../../services/products.service';
-import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 
 
 @Component({

@@ -11,8 +11,7 @@
         CARD</button>
       <div *ngIf='user.id===product.creator._id'>
         <button mat-raised-button color="primary">EDIT</button>
-        <button style="margin-left:1rem;" mat-raised-button color="warn">DELETE</button>
-
+        <button style="margin-left:1rem;" mat-raised-button color="warn" *ngIf='product' (click)='deleteProduct(product._id)'>DELETE</button>
       </div>
     </div>
   </div>

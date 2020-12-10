@@ -89,4 +89,22 @@ export class AuthService {
     }
   }
 
+  deleteProduct(productId: string) {
+    const token = localStorage.getItem('token')
+    if (token) {
+      return this.http.post('http://localhost:5000/shop/delete-product', {
+        productId
+      }, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }).subscribe((res: any) => {
+        const user:IUser = res.user;
+        this.user.next(user);
+        this.route.navigate(['/profile']);
+        
+      })
+    }
+  }
+
 }

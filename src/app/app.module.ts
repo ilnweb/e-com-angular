@@ -28,7 +28,6 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SingleProductComponent } from './pages/single-product/single-product.component';
 import { EmptyComponent } from './components/empty/empty.component';
-import { NgxFileDropModule } from 'ngx-file-drop';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import {MatSelectModule} from '@angular/material/select';
 
@@ -53,8 +52,6 @@ import {MatSelectModule} from '@angular/material/select';
     SingleProductComponent,
     EmptyComponent,
     ProductListComponent,
-    
-   
   ],
   imports: [
     BrowserModule,
@@ -69,7 +66,6 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    NgxFileDropModule,
     MatSelectModule
   ],
   providers: [],

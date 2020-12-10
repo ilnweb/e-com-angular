@@ -24,8 +24,6 @@ export class CardComponent implements OnInit {
       if (user) {
         this.user = user;
       }
-      console.log(this.product);
-      console.log(this.user);
      
     })
   }
@@ -36,6 +34,11 @@ export class CardComponent implements OnInit {
 
   addToCart(product:IProduct) {
     this.cartService.addTocart(product)
+  }
+
+  deleteProduct(productId:string) {
+    console.log(productId);
+    this.authService.deleteProduct(productId)
   }
 
 }
