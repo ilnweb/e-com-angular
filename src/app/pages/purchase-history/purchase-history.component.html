@@ -3,9 +3,12 @@
 
   <div *ngIf='products'>
     <app-product-list [products]='products' [displayButton]='false'></app-product-list>
+    <div *ngIf='products.length < 1'>
+      <app-empty [title]="'You didn\'t purchase any products yet!'" [icon]="'move_to_inbox'"></app-empty>
+    </div>
   </div>
 </div>
 
-<div *ngIf='products.length < 1'>
-  <app-empty [title]="'You didn\'t purchase any products yet!'" [icon]="'move_to_inbox'"></app-empty>
+<div class="spinner" fxLayout="column" fxLayoutAlign="center center" *ngIf='!products'>
+  <mat-spinner></mat-spinner>
 </div>

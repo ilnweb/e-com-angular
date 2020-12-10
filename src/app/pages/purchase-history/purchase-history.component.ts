@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class PurchaseHistoryComponent implements OnInit {
 
-  products: IProduct[] = [];
+  products: IProduct[] = null;
   private activeSubscription: Subscription;
 
   constructor(private authService: AuthService) { }
