@@ -9,14 +9,20 @@
         Title should be longer than 3 characters!
       </mat-error>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <mat-label>Category</mat-label>
-      <input type="text" name="category" placeholder="Category" matInput ngModel required>
-      <mat-error>
-        Title should not be empty!
-      </mat-error>
+    <mat-form-field appearance="fill">
+      <mat-label>Select an category</mat-label>
+      <mat-select matNativeControl [(value)]="selectedCategory">
+        <mat-option value="cameras">cameras</mat-option>
+        <mat-option value="lenses">lenses</mat-option>
+        <mat-option value="accessories">accessories</mat-option>
+      </mat-select>
+      <div *ngIf='noCathegory'>
+        <mat-error>
+          Please select a category!
+        </mat-error>
+      </div>
     </mat-form-field>
-<!--     
+    <!--     
     <ngx-file-drop dropZoneLabel="Drop files here" contentClassName="drop" (onFileDrop)="dropped($event)" 
     (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)"></ngx-file-drop> -->
     <mat-form-field class="example-full-width">

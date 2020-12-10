@@ -1,7 +1,11 @@
-<div fxLayout='column' fxLayoutAlign='start center '>
+<div fxLayout='column' fxLayoutAlign='start center ' style="margin-top: 2rem;">
   <h1 class="mat-display-2">Products you purchase</h1>
 
   <div *ngIf='products'>
     <app-product-list [products]='products' [displayButton]='false'></app-product-list>
   </div>
+</div>
+
+<div *ngIf='products.length < 1'>
+  <app-empty [title]="'You didn\'t purchase any products yet!'" [icon]="'move_to_inbox'"></app-empty>
 </div>

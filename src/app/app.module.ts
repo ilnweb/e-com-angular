@@ -30,7 +30,7 @@ import { SingleProductComponent } from './pages/single-product/single-product.co
 import { EmptyComponent } from './components/empty/empty.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { ProductListComponent } from './components/product-list/product-list.component';
-
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -69,7 +69,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
     FormsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    NgxFileDropModule
+    NgxFileDropModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
