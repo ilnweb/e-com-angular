@@ -1,4 +1,21 @@
-# EComAngular
+# Photostore
+
+An online shop for photography equipment.
+
+## Current features
+
+1. Home page displaying categories and 4 latest products. (no auth)
+2. Shop page displaying all products. If selected catefory displays only those products. (no auth)
+3. Single product page displaying the product details. (no auth)
+4. Login Register pages for authentication. (no auth)
+5. User profile page after login/register displaying user info and products created by the user. (auth)
+6. Create product page where users can create new products. (auth)
+7. Cart page displaying products added to cart by user to be aple to pay you need to be loged in. (no auth)
+8. Purchase history page displaying all products that a user purchased (auth)
+
+This aplication is using the MEAN stack.
+
+## EComAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
