@@ -16,7 +16,7 @@ export class AuthService {
   constructor(private http: HttpClient, private route: Router,private cartService: CartService) { }
 
   get userGet(): IUser {
-    return this.user.getValue();
+    return this.user.value;
   }
 
   register(email: string, password: string, displayName: string) {

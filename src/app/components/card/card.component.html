@@ -6,13 +6,20 @@
     <h1 class="card-title">{{product.title}}</h1>
     <p class="price">{{product.price}}$</p>
 
-    <div *ngIf='displayButton'>
-      <button *ngIf='user.id!==product.creator._id' mat-raised-button color="primary" (click)='addToCart(product)'>ADD TO
-        CARD</button>
-      <div *ngIf='user.id===product.creator._id'>
-        <button mat-raised-button color="primary">EDIT</button>
-        <button style="margin-left:1rem;" mat-raised-button color="warn" *ngIf='product' (click)='deleteProduct(product._id)'>DELETE</button>
+    <div *ngIf='user'>
+      <div *ngIf='displayButton'>
+        <button *ngIf='user.id!==product.creator._id' mat-raised-button color="primary" (click)='addToCart(product)'>ADD
+          TO
+          CARD</button>
+        <div *ngIf='user.id===product.creator._id'>
+          <button mat-raised-button color="primary">EDIT</button>
+          <button style="margin-left:1rem;" mat-raised-button color="warn" *ngIf='product'
+            (click)='deleteProduct(product._id)'>DELETE</button>
+        </div>
       </div>
     </div>
+    <button *ngIf='!user' mat-raised-button color="primary" (click)='addToCart(product)'>ADD
+      TO
+      CARD</button>
   </div>
 </div>
