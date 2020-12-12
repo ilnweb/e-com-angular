@@ -1,6 +1,6 @@
 <div fxLayout='column' fxLayoutAlign='start center ' style="margin-top: 2rem;">
   <h1 class="mat-display-2">Products you purchase</h1>
-
+<hr>
   <div *ngIf='products'>
     <app-product-list [products]='products' [displayButton]='false'></app-product-list>
     <div *ngIf='products.length < 1'>

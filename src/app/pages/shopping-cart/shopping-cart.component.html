@@ -1,17 +1,20 @@
-<div class="shopping-cart" fxLayout="column" fxLayoutAlign="start center">
+<div class="shopping-cart" fxLayout="column" fxLayoutAlign="start center" style="padding: 2rem;">
   <h1 class="mat-display-2">Your Shopping Cart</h1>
   <hr>
+  <div *ngIf='products.length>0' fxLayout="row" fxLayoutAlign="end center" style="width: 80%;">
+    <button mat-raised-button color="primary" type="button" (click)='clearCart()'>Clear cart</button>
+  </div>
   <div class="shopping-cart-products-container">
   </div>
   <div *ngIf='products'>
     <div *ngIf='products.length<1'>
-      <app-empty [title]="'You didn\'t add any products yet!'" [icon]="'remove_shopping_cart'"></app-empty>
+      <app-empty [title]="'Your cart is empty!'" [icon]="'remove_shopping_cart'"></app-empty>
     </div>
     <div *ngIf='products?.length > 0'>
       <app-product-list [products]='products'></app-product-list>
     </div>
-    <div *ngIf='products.length>0'>
-      <h2>Total: {{totalToPay}}$</h2>
+    <div *ngIf='products.length>0' fxLayout="column" fxLayoutAlign="center center" style='padding: 3rem;'>
+      <h2 class="mat-display-1" style='color: forestgreen; margin-bottom: 2rem;'>Total: {{totalToPay}}$</h2>
       <button mat-raised-button color="primary" type="button" (click)='onPurchase()'>Pay Now</button>
     </div>
   </div>
