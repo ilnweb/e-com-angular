@@ -24,8 +24,14 @@ export class ShopComponent implements OnInit {
     this.productsService.products.subscribe((products: IProduct[]) => {
       this.products = products;
     })
-      console.log(this.products);
     }
+  }
+
+  getAllProducts() {
+    this.productsService.getAllProducts();
+    this.productsService.products.subscribe((products: IProduct[]) => {
+      this.products = products;
+    })
   }
 
 }

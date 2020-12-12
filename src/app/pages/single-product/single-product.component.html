@@ -13,11 +13,16 @@
       </div>
       <div>
         <p><strong>Price: </strong> {{product.price}}$</p>
-        <button *ngIf='user.id!==product.creator._id' mat-raised-button color="primary">ADD TO CARD</button>
-        <div *ngIf='user.id===product.creator._id'>
-          <button mat-raised-button color="primary">EDIT</button>
-          <button style="margin-left:1rem;" mat-raised-button color="warn">DELETE</button>
+        <div *ngIf='user'>
+          <button *ngIf='user.id!==product.creator._id' mat-raised-button color="primary" (click)='addToCart(product)'>ADD TO CARD</button>
+          <div *ngIf='user.id===product.creator._id'>
+            <button mat-raised-button color="primary">EDIT</button>
+            <button style="margin-left:1rem;" mat-raised-button color="warn">DELETE</button>
 
+          </div>
+        </div>
+        <div *ngIf='!user'>
+          <button mat-raised-button color="primary" (click)='addToCart(product)'>ADD TO CARD</button>
         </div>
       </div>
     </div>

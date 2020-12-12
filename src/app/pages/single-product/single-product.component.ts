@@ -4,6 +4,7 @@ import { ProductsService } from 'src/app/services/products.service';
 import { IProduct } from '../../models/product.model';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-single-product',
@@ -15,7 +16,7 @@ export class SingleProductComponent implements OnInit, OnDestroy {
   user = null;
   private activatedSub: Subscription;
 
-  constructor(private productsService: ProductsService, private authService: AuthService, private route: ActivatedRoute) { }
+  constructor(private productsService: ProductsService, private authService: AuthService, private route: ActivatedRoute, private cartService: CartService) { }
 
   ngOnInit() {
     this.activatedSub = this.authService.user.subscribe((user) => {
@@ -31,6 +32,10 @@ export class SingleProductComponent implements OnInit, OnDestroy {
         console.log(this.product);
       })
     }
+  }
+
+  addToCart(product:IProduct) {
+    this.cartService.addTocart(product)
   }
 
   ngOnDestroy(): void {
