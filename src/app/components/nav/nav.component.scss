@@ -40,3 +40,11 @@
   width: 5rem;
   display: flex;
 }
+
+.sticky {
+  box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
+  position: fixed;
+  top: 0;
+  width: 97%;
+  height: 2rem;
+}

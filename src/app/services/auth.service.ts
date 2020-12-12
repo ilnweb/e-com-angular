@@ -25,12 +25,7 @@ export class AuthService {
       displayName,
       password
 
-    }).subscribe((res: any) => {
-      const user = res.user;
-      this.user.next(user);
-      console.log(this.user);
-      this.route.navigate(['/'])
-    })
+    }).pipe(catchError(this.errorHandler))
   }
 
   login(email: string, password: string) {
