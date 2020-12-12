@@ -14,22 +14,27 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   user = null;
+  error = null;
 
-  constructor(private authService: AuthService, private route:Router) { }
+  constructor(private authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
   onLogin(form: NgForm) {
     const { email, password } = form.value;
-    this.authService.login(email, password)
-    // this.authService.user.subscribe(user => {
-    //   if (user) {
-    //     this.user = user;
-    //     this.route.navigate(['/'])
-    //   }
-    // })
-    this.user = this.authService.userGet;
-  }
+    this.authService.login(email, password).subscribe((res: any) => {
+      const user = res.user;
+      this.authService.user.next(user);
+      console.log(this.user);
+      localStorage.setItem('token', user._token)
+      this.route.navigate(['/'])
+    },
+      errMesaage => {
+        this.error = errMesaage
+      }
 
+    )
+    // this.user = this.authService.userGet;
+  }
 }

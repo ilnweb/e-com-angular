@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IUser } from '../models/user.model';
 import { IProduct } from '../models/product.model';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { CartService } from './cart.service';
 
@@ -11,9 +12,8 @@ import { CartService } from './cart.service';
 })
 export class AuthService {
   user = new BehaviorSubject<IUser>(null);
-  // user: IUser = null;
-  readonly user$ = this.user.asObservable();
-  constructor(private http: HttpClient, private route: Router,private cartService: CartService) { }
+
+  constructor(private http: HttpClient, private route: Router, private cartService: CartService) { }
 
   get userGet(): IUser {
     return this.user.value;
@@ -38,27 +38,21 @@ export class AuthService {
       email,
       password
 
-    }).subscribe((res: any) => {
-      const user = res.user;
-      this.user.next(user);
-      console.log(this.user);
-      localStorage.setItem('token', user._token)
-      this.route.navigate(['/'])
-    })
+    }).pipe(catchError(this.errorHandler))
   }
 
   async autoLogin() {
     const token = localStorage.getItem('token')
     if (token) {
-      const res:any = await this.http.post('http://localhost:5000/auth/login-auto', {},
+      const res: any = await this.http.post('http://localhost:5000/auth/login-auto', {},
         {
           headers: {
             Authorization: "Bearer " + token,
           },
         }).toPromise()
-        const user:IUser = res.user;
-        this.user.next(user);
-        console.log(res);
+      const user: IUser = res.user;
+      this.user.next(user);
+      console.log(res);
     }
 
   }
@@ -79,12 +73,12 @@ export class AuthService {
           Authorization: "Bearer " + token,
         },
       }).subscribe((res: any) => {
-        const user:IUser = res.user;
+        const user: IUser = res.user;
         this.user.next(user);
         console.log(user);
         this.route.navigate(['/purchase-history'])
         this.cartService.shoppingCart.next([]);
-        
+
       })
     }
   }
@@ -99,12 +93,17 @@ export class AuthService {
           Authorization: "Bearer " + token,
         },
       }).subscribe((res: any) => {
-        const user:IUser = res.user;
+        const user: IUser = res.user;
         this.user.next(user);
         this.route.navigate(['/profile']);
-        
+
       })
     }
+  }
+
+  private errorHandler(errorRes: HttpErrorResponse) {
+    const errMesaage = errorRes.error.message;
+    return throwError(errMesaage);
   }
 
 }
