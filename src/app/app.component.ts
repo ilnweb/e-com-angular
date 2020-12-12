@@ -12,11 +12,12 @@ import { ProductsService } from './services/products.service';
     trigger('fade',
       [
         state('void', style({ opacity: 0 })),
-        transition(':enter', [animate(300)]),
-        transition(':leave', [animate(500)]),
+        transition(':enter', [animate(1000)]),
+        transition(':leave', [animate(1000)]),
       ]
     )]
 })
+  
 export class AppComponent implements OnInit {
   title = 'e-com-angular';
 
@@ -29,12 +30,12 @@ export class AppComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e) {
-     if (window.pageYOffset > 200) {
-       let element = document.getElementById('navbar');
-       element.classList.add('sticky');
-     } else {
+    if (window.pageYOffset > 200) {
       let element = document.getElementById('navbar');
-        element.classList.remove('sticky'); 
-     }
+      element.classList.add('sticky');
+    } else if(window.pageYOffset < 250) {
+      let element = document.getElementById('navbar');
+      element.classList.remove('sticky');
+    }
   }
 }

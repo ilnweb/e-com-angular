@@ -1,4 +1,4 @@
-.main-nav{
+.main-nav {
   background-color: #3f51b5;
   display: flex;
   padding: 1rem 2rem;
@@ -7,44 +7,60 @@
   align-items: center;
   color: white;
 
-  .logo{
+  .logo {
     display: flex;
-    align-items:center;
-    h1{
+    align-items: center;
+
+    h1 {
       margin: 0;
     }
-    
 
-    div{
+
+    div {
       width: 3rem;
     }
 
-    &-icon{
+    &-icon {
       font-size: 2rem;
     }
   }
 
-  ul{
+  ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 50%;
 
-    li{
+    li {
       padding: 0 1rem;
     }
   }
 }
 
-.welcome-message{
+.welcome-message {
   width: 5rem;
   display: flex;
 }
 
 .sticky {
-  box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, .08);
   position: fixed;
   top: 0;
   width: 97%;
   height: 2rem;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: fadeIn .5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
