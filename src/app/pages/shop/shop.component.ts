@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  products: IProduct[] = []
+  products: IProduct[] = null
   constructor(private productsService: ProductsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {

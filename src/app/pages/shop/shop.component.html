@@ -1,4 +1,4 @@
-<div class="shop" fxLayout="column" fxLayoutAlign="start center" >
+<div class="shop" fxLayout="column" fxLayoutAlign="start center">
   <h1 class="mat-display-2">Checkout out amzing products</h1>
   <div class="shop_filter-menu">
     <mat-toolbar>
@@ -15,11 +15,17 @@
       </button>
     </mat-toolbar>
   </div>
-  <div class="spinner" fxLayout="column" fxLayoutAlign="center center" *ngIf='products.length<1'>
+  <div *ngIf='products'>
+    <div *ngIf='products.length < 1'>
+      <app-empty [title]="'No products found!'" [icon]="'move_to_inbox'"></app-empty>
+    </div>
+    <div class="shop_container" *ngIf='products.length>0'>
+      <app-product-list [products]='products'></app-product-list>
+    </div>
+  </div>
+
+  <div class="spinner" fxLayout="column" fxLayoutAlign="center center" *ngIf='!products'>
     <mat-spinner></mat-spinner>
   </div>
-  <div class="shop_container" *ngIf='products.length>0'>
-    <app-product-list [products]='products'></app-product-list>
-  </div>
-</div>
 
+</div>

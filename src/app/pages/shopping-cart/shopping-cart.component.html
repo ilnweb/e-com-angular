@@ -10,7 +10,7 @@
     <div *ngIf='products.length<1'>
       <app-empty [title]="'Your cart is empty!'" [icon]="'remove_shopping_cart'"></app-empty>
     </div>
-    <div *ngIf='products?.length > 0'>
+    <div *ngIf='products.length > 0'>
       <app-product-list [products]='products'></app-product-list>
     </div>
     <div *ngIf='products.length>0' fxLayout="column" fxLayoutAlign="center center" style='padding: 3rem;'>
