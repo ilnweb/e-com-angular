@@ -40,9 +40,12 @@ export class ProductsService {
         headers: {
           Authorization: "Bearer " + token,
         },
-      }).subscribe(resData => {
+      }).subscribe((resData:any) => {
         if (resData) {
-          this.route.navigate(['/'])
+          console.log(resData);
+          const user = resData.user;
+          this.authservice.user.next(user)
+          this.route.navigate(['/profile'])
         }
       })
     }

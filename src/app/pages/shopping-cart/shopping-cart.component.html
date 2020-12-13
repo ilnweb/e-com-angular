@@ -11,7 +11,7 @@
       <app-empty [title]="'Your cart is empty!'" [icon]="'remove_shopping_cart'"></app-empty>
     </div>
     <div *ngIf='products.length > 0'>
-      <app-product-list [products]='products'></app-product-list>
+      <app-product-list [products]='products' [displayButton]='false'></app-product-list>
     </div>
     <div *ngIf='products.length>0' fxLayout="column" fxLayoutAlign="center center" style='padding: 3rem;'>
       <h2 class="mat-display-1" style='color: forestgreen; margin-bottom: 2rem;'>Total: {{totalToPay}}$</h2>

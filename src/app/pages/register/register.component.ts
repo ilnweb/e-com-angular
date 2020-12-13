@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(email, password, name).subscribe((res: any) => {
       const user = res.user;
       this.authService.user.next(user);
+      localStorage.setItem('token', user._token)
       this.route.navigate(['/'])
     },
       errMesaage => {
